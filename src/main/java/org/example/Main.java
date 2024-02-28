@@ -39,10 +39,5 @@ public class Main {
         arr.add("pop");
 
         arr.remove("pop");
-
-        String s1 = "abc";
-        String s2 = "abc";
-        if (s1.equals(s2)) System.out.println("==");
-        else System.out.println("!=");
     }
 }
