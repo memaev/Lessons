@@ -25,45 +25,49 @@ public class Main {
         return "<5.0";
     }
 
-    static void solve(String str){
-        // a a b
+    /*
+    nums: 1 2 3; size(n) = 3
+    res: 1 2 3 1 2 3
+     */
+
+    //res[i] = nums[i]
+    //res[i+n] = nums[i]
+    static List<Integer> solve(List<Integer> list) {
+        int n = list.size();
+        List<Integer> res = new ArrayList<>();
+
+        //заполняем лист дефолтными значениями
+        for (int i=0; i<2*n; i++) {
+            res.add(0);
+        }
+
+        //выполняем нужные действия
+        for (int i=0; i<n; i++) {
+            int curr = list.get(i);
+            res.set(i, curr);
+            res.set(i+n, curr);
+        }
+        return res;
     }
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        LinkedList<String> list = new LinkedList<>();
-        list.add("Str1");
-        list.add("Str2");
-        list.add("Str3"); //добавление элемента в конец списка
-        System.out.println(list);
+        int n = scan.nextInt();
+        List<Integer> inputList = new ArrayList<>();
 
-        //удаление первого появления элемента в списке
-        list.remove("Str3");
-        System.out.println(list);
-
-        //добавление элемента в начало списка
-        list.addFirst("Str4");
-        System.out.println(list);
-
-        System.out.println("Enter line: ");
-        String str = scan.nextLine(); //считываем данные от пользователя
-        if (list.contains(str)){
-            System.out.println("List contains input str");
-        }else{
-            System.out.println("List does not contain input str");
+        for (int i=0; i<n; i++) {
+            int buff = scan.nextInt();
+            inputList.add(buff);
         }
-
-        if (list.isEmpty()){
-            System.out.println("List is empty");
-        }else
-            System.out.println("List is not empty");
-
-        for (String string : list){
-            System.out.println(string);
-        }
-
-        List<Double> arrList = new ArrayList<>();
-
+        System.out.println(solve(inputList));
     }
+
+    /*
+    1. Считать n (done)
+    2. Считать входной массив (done)
+    3. Создать новый массив (done)
+    4. Пройтись по входному массиву и составить результат
+    5. Вернуть и вывести результат
+     */
 }
