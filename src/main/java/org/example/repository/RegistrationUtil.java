@@ -17,13 +17,6 @@ public class RegistrationUtil {
         return 0;
     }
 
-    public static int register(Student student){
-        if (student.getAge()>18) return -1;
-
-        // registration
-        return 0;
-    }
-
     public static int register(Guard guard){
         return 0;
     }

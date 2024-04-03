@@ -1,30 +1,23 @@
 package org.example.entity;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Student {
-    private int age, grade;
-    private String name, lastName;
+    private String id, name;
 
-    public Student(int age, int grade, String name, String lastName) {
-        this.age = age;
-        this.grade = grade;
+    public Student(String id, String name) {
+        this.id = id;
         this.name = name;
-        this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
+    public String getId() {
+        return id;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -35,11 +28,17 @@ public class Student {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public String toString() {
+        return this.name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public static Set<String> filterStudents(List<Student> students) {
+        Set<String> uniqueStudentsNames = new HashSet<>();
+
+        for(Student student : students) {
+            uniqueStudentsNames.add(student.getName());
+        }
+        return uniqueStudentsNames;
     }
 }

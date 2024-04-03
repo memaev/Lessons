@@ -4,10 +4,7 @@ import org.example.entity.*;
 import org.example.repository.RegistrationUtil;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -50,24 +47,49 @@ public class Main {
         return res;
     }
 
+    static class Bmw implements Car {
+        @Override
+        public void toDrive() {
+            System.out.println("Driving in bmw");
+        }
+
+        @Override
+        public void toBreak() {
+            System.out.println("Breaking the bmw");
+        }
+    }
+
+    static class Lada implements Car {
+        @Override
+        public void toDrive() {
+            System.out.println("Driving in lada");
+        }
+
+        @Override
+        public void toBreak() {
+            System.out.println("Breaking the lada");
+        }
+
+        public String getStr(){return "Hello";}
+    }
+
+    interface Car {
+        void toDrive();
+        void toBreak();
+    }
+
+    public static void doSmth(Car car){
+        car.toDrive();
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        int n = scan.nextInt();
-        List<Integer> inputList = new ArrayList<>();
+        // API - Application Programming Interface
+        List<Integer> list = new ArrayList<>();
+        Car car = new Bmw();
 
-        for (int i=0; i<n; i++) {
-            int buff = scan.nextInt();
-            inputList.add(buff);
-        }
-        System.out.println(solve(inputList));
+        doSmth(new Bmw());
+        doSmth(new Lada());
     }
-
-    /*
-    1. Считать n (done)
-    2. Считать входной массив (done)
-    3. Создать новый массив (done)
-    4. Пройтись по входному массиву и составить результат
-    5. Вернуть и вывести результат
-     */
 }
