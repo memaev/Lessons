@@ -1,5 +1,6 @@
 package org.example;
 import com.sun.source.tree.ClassTree;
+import kotlin.jvm.internal.AdaptedFunctionReference;
 import org.example.entity.*;
 import org.example.repository.RegistrationUtil;
 
@@ -85,11 +86,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        // API - Application Programming Interface
-        List<Integer> list = new ArrayList<>();
-        Car car = new Bmw();
 
-        doSmth(new Bmw());
-        doSmth(new Lada());
+        /*
+        Создать класс школы, у которой есть следующие параметры:
+        Название, город, в котором находится, количество учеников
+         */
     }
 }
